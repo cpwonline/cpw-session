@@ -3,8 +3,9 @@
 ## Project
 cmake_minimum_required(VERSION 3.12)
 project("project-name" LANGUAGES CXX)
-include("cmake/general_options.cmake")
-include("cmake/build_settings.cmake")
+include(cmake/general_options.cmake)
+include(cmake/build_settings.cmake)
+include(cmake/conan.cmake)
 
 ## Version
 set(${PROJECT_NAME}_VERSION_MAYOR 0)
@@ -17,7 +18,11 @@ set(HEADER ${PROJECT_SOURCE_DIR}/include)
 set(PROJECT_FULL_NAME "Project full name")
 set(
 	PACKAGE_VERSION 
-	${${PROJECT_NAME}_VERSION_MAYOR}.${${PROJECT_NAME}_VERSION_MINOR}.${${PROJECT_NAME}_VERSION_PATCH}${${PROJECT_NAME}_VERSION_SUFFIX}
+	${${PROJECT_NAME}_VERSION_MAYOR}.${${PROJECT_NAME}_VERSION_MINOR}.${${PROJECT_NAME}_VERSION_PATCH}
+)
+set(
+	PACKAGE_VERSION_COMPLETE
+	${PACKAGE_VERSION}${${PROJECT_NAME}_VERSION_SUFFIX}
 )
 
 # Config file
@@ -34,7 +39,7 @@ if(_ENABLE_TESTING)
 	add_subdirectory(tests)
 endif()
 
-include("cmake/doxygen.cmake")
-include("cmake/files_install.cmake")
-include("cmake/print_informations.cmake")
-include("cmake/files_install.cmake")
+include(cmake/doxygen.cmake)
+include(cmake/files_install.cmake)
+include(cmake/print_informations.cmake)
+include(cmake/files_install.cmake)
