@@ -25,7 +25,13 @@ class Session
 	public:
 		Session();
 		virtual ~Session();
-	
+		
+	public:
+		User* get_current_user() const;
+		std::list<Permission*> get_permissions_colector() const;
+		std::list<Level*> get_levels_colector() const;
+		Expiration* get_current_expiration() const;
+		
 	private:
 		User* current_user_;
 		std::list<Permission*> permissions_colector_;
