@@ -19,6 +19,18 @@ class Permission
 		Permission();
 		virtual ~Permission();
 	
+	public:
+		int get_identifier() const;
+		std::string get_name() const;
+		std::string get_desription() const;
+		bool get_passed() const;
+	
+	public:
+		void set_identifier(int identifier);
+		void set_name(std::string name);
+		void set_desription(std::string desription);
+		void set_passed(bool passed);
+		
 	private:
 		int identifier_;
 		std::string name_;
