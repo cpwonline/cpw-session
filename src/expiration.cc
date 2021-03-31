@@ -59,6 +59,16 @@ std::chrono::duration<double> Expiration::get_time_remaining() const
 	return time_remaining_;
 }
 
+bool Expiration::VerifyStatus_()
+{
+	ElapsedTime_();
+	if(time_remaining_ <= 0.d)
+	{
+		expired_ = true;
+		return true;
+	}
+}
+
 void Expiration::ElapsedTime_()
 {
 	time_end_ = std::chrono::system_clock::now();

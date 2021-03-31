@@ -29,6 +29,9 @@ class Expiration
 		std::chrono::time_point<std::chrono::system_clock> get_time_end() const;
 		std::chrono::duration<double> get_time_remaining() const;
 		
+	public:
+		bool VerifyStatus_();
+		
 	protected:
 		void ElapsedTime_();
 	
