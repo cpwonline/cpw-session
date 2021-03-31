@@ -10,6 +10,13 @@
  */
 
 
+#include <list>
+
+#include "user.h"
+#include "permission.h"
+#include "level.h"
+#include "expiration.h"
+
 #ifndef SESSION_H
 #define SESSION_H
 
@@ -20,7 +27,10 @@ class Session
 		virtual ~Session();
 	
 	private:
-		/* add your private declarations */
+		User* current_user_;
+		std::list<Permission*> permissions_colector_;
+		std::list<Level*> levels_colector_;
+		Expiration* current_expiration_;
 };
 
 #endif /* SESSION_H */ 
