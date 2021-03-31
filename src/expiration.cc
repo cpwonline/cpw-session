@@ -69,6 +69,12 @@ bool Expiration::VerifyStatus_()
 	}
 }
 
+void Expiration::Restart_()
+{
+	if(active_)
+		time_start_ = std::chrono::system_clock::now();
+}
+
 void Expiration::ElapsedTime_()
 {
 	time_end_ = std::chrono::system_clock::now();

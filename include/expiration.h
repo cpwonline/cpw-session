@@ -31,6 +31,7 @@ class Expiration
 		
 	public:
 		bool VerifyStatus_();
+		void Restart_();
 		
 	protected:
 		void ElapsedTime_();
