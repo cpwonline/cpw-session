@@ -21,6 +21,14 @@ class Expiration
 		Expiration();
 		virtual ~Expiration();
 	
+	public:
+		bool get_active() const;
+		bool get_expired() const;
+		std::chrono::minutes get_session_duration() const;
+		std::chrono::time_point<std::chrono::system_clock> get_time_start() const;
+		std::chrono::time_point<std::chrono::system_clock> get_time_end() const;
+		std::chrono::duration<double> get_time_remaining() const;
+		
 	private:
 		bool active_;
 		bool expired_;
