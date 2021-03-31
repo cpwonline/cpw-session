@@ -18,9 +18,27 @@ Level::Level()
 	
 }
 
-
 Level::~Level()
 {
 	
 }
 
+int Level::get_identifier() const
+{
+	return identifier_;
+}
+
+std::string Level::get_name() const
+{
+	return name_;
+}
+
+void Level::set_identifier(int identifier)
+{
+	identifier_ = identifier;
+}
+
+void Level::set_name(std::string name)
+{
+	name_ = name;
+}

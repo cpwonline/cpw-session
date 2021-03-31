@@ -20,6 +20,14 @@ class Level
 	public:
 		Level();
 		virtual ~Level();
+		
+	public:
+		int get_identifier() const;
+		std::string get_name() const;
+		
+	public:
+		void set_identifier(int identifier);
+		void set_name(std::string name);
 	
 	private:
 		int identifier_;
