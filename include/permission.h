@@ -20,7 +20,10 @@ class Permission
 		virtual ~Permission();
 	
 	private:
-		/* add your private declarations */
+		int identifier_;
+		std::string name_;
+		std::string desription_;
+		bool passed_;
 };
 
 #endif /* PERMISSION_H */ 
