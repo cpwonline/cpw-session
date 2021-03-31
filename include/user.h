@@ -10,6 +10,8 @@
  */
 
 
+#include <string>
+
 #ifndef USER_H
 #define USER_H
 
@@ -20,7 +22,7 @@ class User
 		virtual ~User();
 	
 	private:
-		/* add your private declarations */
+		std::string user_name_;
 };
 
 #endif /* USER_H */ 
