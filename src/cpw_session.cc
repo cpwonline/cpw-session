@@ -15,12 +15,14 @@
 
 CPWSession::CPWSession()
 {
-	
+	current_session_ = new Session();
+	current_access_control_ = new AccessControl();
 }
 
 
 CPWSession::~CPWSession()
 {
-	
+	delete current_session_;
+	delete current_access_control_;
 }
 
