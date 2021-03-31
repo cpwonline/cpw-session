@@ -18,7 +18,7 @@
 class Expiration
 {
 	public:
-		Expiration();
+		Expiration(bool active, int session_duration = 0);
 		virtual ~Expiration();
 	
 	public:

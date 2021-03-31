@@ -13,11 +13,16 @@
 #include "expiration.h"
 
 
-Expiration::Expiration()
+Expiration::Expiration(bool active, int session_duration) :
+	active_(active),
+	expired_(false)
 {
-	
+	if(active_)
+	{
+		session_duration_ = session_duration;
+		time_start_ = std::chrono::system_clock::now();
+	}
 }
-
 
 Expiration::~Expiration()
 {
