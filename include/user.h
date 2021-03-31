@@ -20,7 +20,13 @@ class User
 	public:
 		User();
 		virtual ~User();
+		
+	public:
+		std::string get_user_name() const;
 	
+	public:
+		void set_user_name(std::string user_name);
+		
 	private:
 		std::string user_name_;
 };

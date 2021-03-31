@@ -24,3 +24,12 @@ User::~User()
 	
 }
 
+std::string User::get_user_name() const
+{
+	return user_name_;
+}
+
+void User::set_user_name(std::string user_name)
+{
+	user_name_ = user_name;
+}
