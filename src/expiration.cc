@@ -58,3 +58,9 @@ std::chrono::duration<double> Expiration::get_time_remaining() const
 {
 	return time_remaining_;
 }
+
+void Expiration::ElapsedTime_()
+{
+	time_end_ = std::chrono::system_clock::now();
+	time_remaining_ = session_duration_ - time_end_ - time_start_;
+}
