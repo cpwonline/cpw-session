@@ -10,6 +10,8 @@
  */
 
 
+#include <string>
+
 #ifndef LEVEL_H
 #define LEVEL_H
 
@@ -20,7 +22,8 @@ class Level
 		virtual ~Level();
 	
 	private:
-		/* add your private declarations */
+		int identifier_;
+		std::string name_;
 };
 
 #endif /* LEVEL_H */ 
