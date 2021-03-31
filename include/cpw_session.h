@@ -10,6 +10,9 @@
  */
 
 
+#include "session.h"
+#include "access_control.h"
+
 #ifndef CPW_SESSION_H
 #define CPW_SESSION_H
 
@@ -18,9 +21,14 @@ class CPWSession
 	public:
 		CPWSession();
 		virtual ~CPWSession();
+		
+	public:
+		Session* get_current_session() const;
+		AccessControl* get_current_access_control() const;
 	
 	private:
-		/* add your private declarations */
+		Session* current_session_;
+		AccessControl* current_access_control_;
 };
 
 #endif /* CPW_SESSION_H */ 

@@ -26,3 +26,12 @@ CPWSession::~CPWSession()
 	delete current_access_control_;
 }
 
+Session* CPWSession::get_current_session() const
+{
+	return current_session_;
+}
+
+AccessControl* CPWSession::get_current_access_control() const
+{
+	return current_access_control_;
+}
