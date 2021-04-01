@@ -26,6 +26,7 @@ class Permission
 		std::string get_name() const;
 		std::string get_desription() const;
 		bool get_passed() const;
+		DAC get_actions_list() const;
 	
 	public:
 		void set_identifier(int identifier);

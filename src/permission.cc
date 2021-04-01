@@ -44,9 +44,9 @@ bool Permission::get_passed() const
 	return passed_;
 }
 
-void Permission::set_identifier(int identifier)
+DAC Permission::get_actions_list() const
 {
-	identifier_ = identifier;
+	return actions_list_;
 }
 
 void Permission::set_name(std::string name)
