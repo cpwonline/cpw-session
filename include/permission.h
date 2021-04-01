@@ -22,23 +22,20 @@ class Permission
 		virtual ~Permission();
 	
 	public:
-		int get_identifier() const;
 		std::string get_name() const;
-		std::string get_desription() const;
 		bool get_passed() const;
+		std::string get_desription() const;
 		DAC get_actions_list() const;
 	
 	public:
-		void set_identifier(int identifier);
 		void set_name(std::string name);
-		void set_desription(std::string desription);
 		void set_passed(bool passed);
+		void set_desription(std::string desription);
 		
 	private:
-		int identifier_;
 		std::string name_;
-		std::string desription_;
 		bool passed_;
+		std::string desription_;
 		struct DAC
 		{
 			bool create, read, update, remove;

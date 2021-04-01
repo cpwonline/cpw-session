@@ -24,24 +24,19 @@ Permission::~Permission()
 	
 }
 
-int Permission::get_identifier() const
-{
-	return identifier_;
-}
-
 std::string Permission::get_name() const
 {
 	return name_;
 }
 
-std::string Permission::get_desription() const
-{
-	return desription_;
-}
-
 bool Permission::get_passed() const
 {
 	return passed_;
+}
+
+std::string Permission::get_desription() const
+{
+	return desription_;
 }
 
 DAC Permission::get_actions_list() const
@@ -54,12 +49,12 @@ void Permission::set_name(std::string name)
 	name_ = name;
 }
 
-void Permission::set_desription(std::string desription)
-{
-	desription_ = desription;
-}
-
 void Permission::set_passed(bool passed)
 {
 	passed_ = passed;
+}
+
+void Permission::set_desription(std::string desription)
+{
+	desription_ = desription;
 }
