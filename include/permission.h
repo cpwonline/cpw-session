@@ -38,6 +38,11 @@ class Permission
 		std::string name_;
 		std::string desription_;
 		bool passed_;
+		struct DAC
+		{
+			bool create, read, update, remove;
+		}
+		actions_list_;
 };
 
 #endif /* PERMISSION_H */ 
