@@ -18,7 +18,7 @@
 class Level
 {
 	public:
-		Level();
+		Level(std::string name);
 		virtual ~Level();
 		
 	public:

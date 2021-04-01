@@ -13,7 +13,8 @@
 #include "level.h"
 
 
-Level::Level()
+Level::Level(std::string name) :
+	name_(name)
 {
 	
 }
