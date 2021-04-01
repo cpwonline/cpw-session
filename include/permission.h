@@ -10,13 +10,15 @@
  */
 
 
+#include <string>
+
 #ifndef PERMISSION_H
 #define PERMISSION_H
 
 class Permission
 {
 	public:
-		Permission();
+		Permission(std::string name);
 		virtual ~Permission();
 	
 	public:
