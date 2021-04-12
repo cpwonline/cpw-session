@@ -1,11 +1,5 @@
 # Install files
 
-## Project
-install(
-	TARGETS ${PROJECT_NAME} 
-	DESTINATION ${CMAKE_INSTALL_BINDIR}
-)
-
 ## Header files
 install(
 	FILES ${PROJECT_BINARY_DIR}/${PROJECT_NAME}Config.h 
@@ -13,9 +7,13 @@ install(
 )
 install(
 	FILES 
-		${HEADER}/library1.h
-		${HEADER}/library2.h
-		${HEADER}/object_library.h
+		${HEADER}/access_control.h
+		${HEADER}/cpw_session.h
+		${HEADER}/expiration.h
+		${HEADER}/level.h
+		${HEADER}/permission.h
+		${HEADER}/session.h
+		${HEADER}/user.h
 	DESTINATION 
 		${CMAKE_INSTALL_INCLUDEDIR}/${PROJECT_NAME}
 )
@@ -23,8 +21,7 @@ install(
 ## Libraries
 install(
 	TARGETS 
-		library1
-		library2
+		${PROJECT_NAME}
 	DESTINATION 
 		${CMAKE_INSTALL_LIBDIR}
 )
@@ -41,15 +38,6 @@ install(
 )
 
 ## Share files
-install(
-	FILES ${PROJECT_BINARY_DIR}/share/${PROJECT_NAME}.desktop
-	DESTINATION ${CMAKE_INSTALL_DATADIR}/
->>>>>>> template/devapplications
-)
-install(
-	FILES ${PROJECT_BINARY_DIR}/share/${PROJECT_NAME}/${PROJECT_NAME}.glade
-	DESTINATION ${CMAKE_INSTALL_DATADIR}/${PROJECT_NAME}
-)
 install(
 	FILES ${PROJECT_BINARY_DIR}/share/${PROJECT_NAME}.pc
 	DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
