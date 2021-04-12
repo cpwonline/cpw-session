@@ -2,7 +2,7 @@
 option(_ENABLE_ALL "Enable every option" OFF)
 option(_ENABLE_FAST "Enable every option" OFF)
 option(_ENABLE_TESTING "Enable testing with Google Test" OFF)
-option(_ENABLE_CONAN "Enable Conan package manager" ON)
+option(_ENABLE_CONAN "Enable Conan package manager" OFF)
 option(_ENABLE_DOXYGEN "Enable Doxygen documentation" OFF)
 option(_ENABLE_VERBOSE "Enable verbose output" OFF)
 option(_ENABLE_CCACHE "Enable ccache to speed up the build time" OFF)
@@ -12,8 +12,9 @@ option(_ENABLE_INSTALL_TO_TMP "The prefix is /tmp" OFF)
 
 # Handling options
 
-if(_ENABLE_COMPLETE)
+if(_ENABLE_ALL)
 	set(_ENABLE_TESTING ON)
+	set(_ENABLE_CONAN ON)
 	set(_ENABLE_DOXYGEN ON)
 	set(_ENABLE_VERBOSE ON)
 	set(_ENABLE_CCACHE ON)
