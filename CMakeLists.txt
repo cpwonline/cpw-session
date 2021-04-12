@@ -2,7 +2,7 @@
 
 ## Project
 cmake_minimum_required(VERSION 3.12)
-project("project-name" LANGUAGES CXX)
+project("cpw-session" LANGUAGES CXX)
 include(cmake/general_options.cmake)
 include(cmake/build_settings.cmake)
 include(cmake/conan.cmake)
@@ -15,7 +15,7 @@ set(${PROJECT_NAME}_VERSION_SUFFIX "-Alpha")
 
 ## Put variables
 set(HEADER ${PROJECT_SOURCE_DIR}/include)
-set(PROJECT_FULL_NAME "Project full name")
+set(PROJECT_FULL_NAME "CPW Session")
 set(
 	PACKAGE_VERSION 
 	${${PROJECT_NAME}_VERSION_MAYOR}.${${PROJECT_NAME}_VERSION_MINOR}.${${PROJECT_NAME}_VERSION_PATCH}
