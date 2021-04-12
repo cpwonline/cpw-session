@@ -1,37 +1,48 @@
-# Use PkgConfig
-include(FindPkgConfig)
-find_package(PkgConfig REQUIRED)
-pkg_search_module(DEPENDENCY1 REQUIRED gtkmm-3.0)
-pkg_search_module(DEPENDENCY2 REQUIRED libmariadb libmysqlclient)
-
-# Find packages
-find_package(Poco)
-if(NOT Poco_FOUND)
-	message(FATAL_ERROR "POCO not found")
-endif()
-
 # Targets
 
 ## Objects libraries
 
-### objectlibrary
-add_library(objectlibrary OBJECT "object_library.cc")
-target_include_directories(objectlibrary PUBLIC ${HEADER})
-set_target_properties(objectlibrary PROPERTIES POSITION_INDEPENDENT_CODE 1)
+### access_control
+add_library(access_control OBJECT "access_control.cc")
+target_include_directories(access_control PUBLIC ${HEADER})
+set_target_properties(access_control PROPERTIES POSITION_INDEPENDENT_CODE 1)
+
+### expiration
+add_library(expiration OBJECT "expiration.cc")
+target_include_directories(expiration PUBLIC ${HEADER})
+set_target_properties(expiration PROPERTIES POSITION_INDEPENDENT_CODE 1)
+
+### level
+add_library(level OBJECT "level.cc")
+target_include_directories(level PUBLIC ${HEADER})
+set_target_properties(level PROPERTIES POSITION_INDEPENDENT_CODE 1)
+
+### permission
+add_library(permission OBJECT "permission.cc")
+target_include_directories(permission PUBLIC ${HEADER})
+set_target_properties(permission PROPERTIES POSITION_INDEPENDENT_CODE 1)
+
+### session
+add_library(session OBJECT "session.cc")
+target_include_directories(session PUBLIC ${HEADER})
+set_target_properties(session PROPERTIES POSITION_INDEPENDENT_CODE 1)
+
+### user
+add_library(user OBJECT "user.cc")
+target_include_directories(user PUBLIC ${HEADER})
+set_target_properties(user PROPERTIES POSITION_INDEPENDENT_CODE 1)
 
 ## Shared and statics libraries
 
-### library1
-add_library(library1 SHARED "library1.cc")
-target_include_directories(library1 PUBLIC ${HEADER} ${DEPENDENCY1_INCLUDE_DIRS} ${PROJECT_BINARY_DIR})
-target_link_libraries(library1 ${DEPENDENCY1_LIBRARIES} objectlibrary)
-
-### library2
-add_library(library2 STATIC "library2.cc")
-target_include_directories(library2 PUBLIC ${HEADER} ${DEPENDENCY2_INCLUDE_DIRS})
-target_link_libraries(library2 ${DEPENDENCY2_LIBRARIES} objectlibrary)
-
-## Main executable
-add_executable(${PROJECT_NAME} "main.cc")
-target_include_directories(${PROJECT_NAME} PUBLIC ${HEADER})
-target_link_libraries(${PROJECT_NAME} PUBLIC library1 library2 Poco::Poco)
+### cpw_session
+add_library(${PROJECT_NAME} SHARED "cpw_session.cc")
+target_include_directories(${PROJECT_NAME} PUBLIC ${HEADER} ${DEPENDENCY1_INCLUDE_DIRS} ${PROJECT_BINARY_DIR})
+target_link_libraries(
+	${PROJECT_NAME} PUBLIC
+	access_control
+	expiration
+	level
+	permission
+	session
+	user
+)
