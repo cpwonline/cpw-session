@@ -9,6 +9,10 @@
  * 
  */
 
+#include <set>
+
+#include <permission.h>
+#include <level.h>
 
 #ifndef ACCESS_CONTROL_H
 #define ACCESS_CONTROL_H
@@ -20,7 +24,8 @@ class AccessControl
 		virtual ~AccessControl();
 	
 	private:
-		/* add your private declarations */
+		std::set<Permission*>* permissions_colector_;
+		std::set<Level*>* levels_colector_;
 };
 
 #endif /* ACCESS_CONTROL_H */ 
