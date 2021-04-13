@@ -13,11 +13,11 @@
 #include "access_control.h"
 
 
-AccessControl::AccessControl()
+AccessControl::AccessControl(std::set<Permission*>* permissions_colector, std::set<Level*>* levels_colector)
 {
-	
+	permissions_colector_ = permissions_colector;
+	levels_colector_ = levels_colector;
 }
-
 
 AccessControl::~AccessControl()
 {

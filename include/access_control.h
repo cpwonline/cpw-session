@@ -20,7 +20,7 @@
 class AccessControl
 {
 	public:
-		AccessControl();
+		AccessControl(std::set<Permission*>* permissions_colector, std::set<Level*>* levels_colector);
 		virtual ~AccessControl();
 	
 	private:
