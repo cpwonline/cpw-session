@@ -73,12 +73,12 @@ bool Permission::get_passed() const
 	return passed_;
 }
 
-std::string Permission::get_desription() const
+std::string Permission::get_description() const
 {
-	return desription_;
+	return description_;
 }
 
-DAC Permission::get_actions_list() const
+Permission::DAC Permission::get_actions_list() const
 {
 	return actions_list_;
 }
@@ -93,7 +93,7 @@ void Permission::set_passed(bool passed)
 	passed_ = passed;
 }
 
-void Permission::set_desription(std::string desription)
+void Permission::set_description(std::string description)
 {
-	desription_ = desription;
+	description_ = description;
 }

@@ -43,23 +43,19 @@ class Permission
 	public:
 		std::string get_name() const;
 		bool get_passed() const;
-		std::string get_desription() const;
+		std::string get_description() const;
 		DAC get_actions_list() const;
 	
 	public:
 		void set_name(std::string name);
 		void set_passed(bool passed);
-		void set_desription(std::string desription);
+		void set_description(std::string description);
 		
 	private:
 		std::string name_;
 		bool passed_;
-		std::string desription_;
-		struct DAC
-		{
-			bool create, read, update, remove;
-		}
-		actions_list_;
+		std::string description_;
+		DAC actions_list_;
 };
 
 #endif /* PERMISSION_H */ 
