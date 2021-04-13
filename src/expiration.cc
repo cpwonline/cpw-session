@@ -64,19 +64,17 @@ std::chrono::time_point<std::chrono::system_clock> Expiration::get_time_end() co
 	return time_end_;
 }
 
-std::chrono::duration<double> Expiration::get_time_remaining() const
-{
-	return time_remaining_;
-}
-
 bool Expiration::VerifyStatus_()
 {
 	ElapsedTime_();
-	if(time_remaining_ <= 0.d)
+	std::chrono::duration<double> zero(0);
+	if(time_remaining_ <= zero)
 	{
 		expired_ = true;
 		return true;
 	}
+	else
+		return false;
 }
 
 void Expiration::Restart_()
