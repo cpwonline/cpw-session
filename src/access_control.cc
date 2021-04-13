@@ -24,3 +24,12 @@ AccessControl::~AccessControl()
 	
 }
 
+std::set<Permission*>* AccessControl::get_permissions_colector() const
+{
+	return permissions_colector_;
+}
+
+std::set<Level*>* AccessControl::get_levels_colector() const
+{
+	return levels_colector_;
+}

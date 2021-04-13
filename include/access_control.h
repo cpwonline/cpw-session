@@ -22,7 +22,9 @@ class AccessControl
 	public:
 		AccessControl(std::set<Permission*>* permissions_colector, std::set<Level*>* levels_colector);
 		virtual ~AccessControl();
-	
+	public:
+		std::set<Permission*>* get_permissions_colector() const;
+		std::set<Level*>* get_levels_colector() const;
 	private:
 		std::set<Permission*>* permissions_colector_;
 		std::set<Level*>* levels_colector_;
