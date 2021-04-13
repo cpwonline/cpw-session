@@ -42,6 +42,9 @@ class CPWSession
 		Session* get_current_session() const;
 		AccessControl* get_current_access_control() const;
 	
+	public:
+		void NewPermission_(bool passed, std::string name, std::string description, bool create, bool read, bool update, bool remove);
+		
 	private:
 		Session* current_session_;
 		AccessControl* current_access_control_;
