@@ -22,6 +22,25 @@ class Permission
 		virtual ~Permission();
 	
 	public:
+		struct DAC
+		{
+			public:
+				bool get_create() const;
+				bool get_read() const;
+				bool get_update() const;
+				bool get_remove() const;
+				
+			public:
+				void set_create(bool create);
+				void set_read(bool read);
+				void set_update(bool update);
+				void set_remove(bool remove);
+				
+			private:
+				bool create, read, update, remove;
+		};
+	
+	public:
 		std::string get_name() const;
 		bool get_passed() const;
 		std::string get_desription() const;
