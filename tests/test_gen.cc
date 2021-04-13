@@ -28,9 +28,15 @@ void TestGen::TearDown()
 
 //-----------------------------------------------------------------------------
 
-TEST_F(TestGen, TestLib2)
+TEST_F(TestGen, UserNameTest)
 {
-	ASSERT_EQ("Hello!", TestObj2_->get_var1());
+	std::string user_name = "josefelixrc7";
+	TestObj_->get_current_session()->get_current_user()->set_user_name(user_name);
+	ASSERT_EQ(user_name, TestObj_->get_current_session()->get_current_user()->get_user_name());
+	std::cout << "\n Session username: " << 
+		TestObj_->get_current_session()->get_current_user()->get_user_name()
+		<< "\n"
+	;
 }
 
 
