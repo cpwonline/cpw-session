@@ -66,4 +66,12 @@ void CPWSession::NewLevel_(int identifier, std::string name)
 	delete temporal_level;
 }
 
+bool Verify_(std::string permission_name, DACType action_type, bool passed)
+{
+	return true;
+}
+
+bool Verify_(int level_identifier)
+{
+	return true;
 }

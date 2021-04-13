@@ -45,6 +45,8 @@ class CPWSession
 	public:
 		void NewPermission_(bool passed, std::string name, std::string description, bool create, bool read, bool update, bool remove);
 		void NewLevel_(int identifier, std::string name);
+		bool Verify_(std::string permission_name, DACType action_type, bool passed = true);
+		bool Verify_(int level_identifier);
 		
 	private:
 		Session* current_session_;
