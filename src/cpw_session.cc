@@ -55,4 +55,15 @@ void CPWSession::NewPermission_(bool passed, std::string name, std::string descr
 	current_session_->get_permissions_colector()->emplace(new Permission(temporal_permission));
 	delete temporal_permission;
 }
+
+void CPWSession::NewLevel_(int identifier, std::string name)
+{
+	Level* temporal_level = new Level();
+	temporal_level->set_identifier(identifier);
+	temporal_level->set_name(name);
+	
+	current_session_->get_levels_colector()->emplace(new Level(temporal_level));
+	delete temporal_level;
+}
+
 }
