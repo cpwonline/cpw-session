@@ -19,6 +19,7 @@ class Level
 {
 	public:
 		Level();
+		Level(const Level* level);
 		virtual ~Level();
 		
 	public:

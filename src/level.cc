@@ -18,6 +18,12 @@ Level::Level()
 	
 }
 
+Level::Level(const Level* level)
+{
+	identifier_ = level->get_identifier();
+	name_ = level->get_name();
+}
+
 Level::~Level()
 {
 	
