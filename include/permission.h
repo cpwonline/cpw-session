@@ -21,6 +21,7 @@ class Permission
 {
 	public:
 		Permission();
+		Permission(const Permission* permission);
 		virtual ~Permission();
 	
 	public:

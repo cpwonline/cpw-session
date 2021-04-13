@@ -35,7 +35,14 @@ bool Permission::DAC::get_read() const
 
 bool Permission::DAC::get_update() const
 {
-	return update;
+	actions_list_ = new DACList();
+	name_ = permission->get_name();
+	passed_ = permission->get_passed();
+	description_ = permission->get_description();
+	actions_list_->set_create(permission->get_actions_list()->get_create());
+	actions_list_->set_read(permission->get_actions_list()->get_read());
+	actions_list_->set_update(permission->get_actions_list()->get_update());
+	actions_list_->set_remove(permission->get_actions_list()->get_remove());
 }
 
 bool Permission::DAC::get_remove() const
