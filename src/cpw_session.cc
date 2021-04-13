@@ -16,7 +16,7 @@
 CPWSession::CPWSession()
 {
 	current_session_ = new Session();
-	current_access_control_ = new AccessControl();
+	current_access_control_ = new AccessControl(current_session_->get_permissions_colector(), current_session_->get_levels_colector());
 }
 
 CPWSession::CPWSession(std::string user_name)
