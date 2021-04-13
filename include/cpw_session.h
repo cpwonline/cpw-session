@@ -25,6 +25,7 @@ class CPWSession
 {
 	public:
 		CPWSession();
+		CPWSession(std::string user_name);
 		virtual ~CPWSession();
 		
 	public:

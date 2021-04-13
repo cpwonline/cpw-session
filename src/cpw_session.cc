@@ -19,6 +19,11 @@ CPWSession::CPWSession()
 	current_access_control_ = new AccessControl();
 }
 
+CPWSession::CPWSession(std::string user_name)
+{
+	CPWSession();
+	current_session_->get_current_user()->set_user_name(user_name);
+}
 
 CPWSession::~CPWSession()
 {
