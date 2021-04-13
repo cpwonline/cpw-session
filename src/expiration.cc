@@ -86,5 +86,6 @@ void Expiration::Restart_()
 void Expiration::ElapsedTime_()
 {
 	time_end_ = std::chrono::system_clock::now();
-	time_remaining_ = session_duration_ - time_end_ - time_start_;
+	elapsed_seconds_ = time_end_ - time_start_;
+	time_remaining_ = session_duration_ - elapsed_seconds_;
 }
