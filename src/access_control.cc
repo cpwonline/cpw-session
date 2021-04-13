@@ -33,3 +33,13 @@ std::set<Level*>* AccessControl::get_levels_colector() const
 {
 	return levels_colector_;
 }
+
+bool AccessControl::VerifyAccess_(Permission* permission_to_verify)
+{
+	
+}
+
+bool AccessControl::VerifyAccess_(Permission* permission_to_verify, Level* level_to_verify)
+{
+	
+}
