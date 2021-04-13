@@ -10,8 +10,13 @@
  */
 
 
+#include <string>
+#include <set>
+
 #include "session.h"
 #include "access_control.h"
+#include "permission.h"
+#include "level.h"
 
 #ifndef CPW_SESSION_H
 #define CPW_SESSION_H
