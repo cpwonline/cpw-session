@@ -7,6 +7,11 @@ add_library(access_control OBJECT "access_control.cc")
 target_include_directories(access_control PUBLIC ${HEADER})
 set_target_properties(access_control PROPERTIES POSITION_INDEPENDENT_CODE 1)
 
+### dac_list
+add_library(dac_list OBJECT "dac_list.cc")
+target_include_directories(dac_list PUBLIC ${HEADER})
+set_target_properties(dac_list PROPERTIES POSITION_INDEPENDENT_CODE 1)
+
 ### expiration
 add_library(expiration OBJECT "expiration.cc")
 target_include_directories(expiration PUBLIC ${HEADER})
@@ -45,4 +50,5 @@ target_link_libraries(
 	permission
 	session
 	user
+	dac_list
 )
