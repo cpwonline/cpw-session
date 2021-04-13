@@ -24,10 +24,13 @@ class Expiration
 	public:
 		bool get_active() const;
 		bool get_expired() const;
-		std::chrono::minutes get_session_duration() const;
+		std::chrono::duration<double> get_session_duration() const;
+		std::chrono::duration<double> get_elapsed_seconds() const;
+		std::chrono::duration<double> get_time_remaining() const;
+		
+	protected:
 		std::chrono::time_point<std::chrono::system_clock> get_time_start() const;
 		std::chrono::time_point<std::chrono::system_clock> get_time_end() const;
-		std::chrono::duration<double> get_time_remaining() const;
 		
 	public:
 		bool VerifyStatus_();

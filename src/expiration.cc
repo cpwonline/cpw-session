@@ -39,9 +39,19 @@ bool Expiration::get_expired() const
 	return expired_;
 }
 
-std::chrono::minutes Expiration::get_session_duration() const
+std::chrono::duration<double> Expiration::get_session_duration() const
 {
 	return session_duration_;
+}
+
+std::chrono::duration<double> Expiration::get_time_remaining() const
+{
+	return time_remaining_;
+}
+
+std::chrono::duration<double> Expiration::get_elapsed_seconds() const
+{
+	return elapsed_seconds_;
 }
 
 std::chrono::time_point<std::chrono::system_clock> Expiration::get_time_start() const
