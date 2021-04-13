@@ -63,6 +63,24 @@ TEST_F(TestGen, PermissionsListTest)
 	std::cout << "\n";
 }
 
+TEST_F(TestGen, LevelsListTest)
+{
+	TestObj_->get_current_session()->get_current_user()->set_user_name("josefelixrc7");
+	std::cout << "\n Session username: " << 
+		TestObj_->get_current_session()->get_current_user()->get_user_name() << "\n"
+	;
+	TestObj_->NewLevel_(2, "Developer");
+	TestObj_->NewLevel_(5, "Manager");
+	TestObj_->NewLevel_(5, "Technical");
+	
+	auto levels = TestObj_->get_current_session()->get_levels_colector();
+	for(auto it = levels->begin(); it != levels->end(); ++it)
+	{
+		std::cout << "\nId: " << (*it)->get_identifier() << ", name: " << (*it)->get_name();
+	}
+	std::cout << "\n";
+}
+
 //-----------------------------------------------------------------------------
 
 int main(int argc, char* argv[])
