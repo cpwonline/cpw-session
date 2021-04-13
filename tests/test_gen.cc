@@ -1,6 +1,9 @@
 #include <iostream>
+#include <string>
+
 #include "gtest/gtest.h"
-#include "library2.h"
+
+#include "cpw_session.h"
 
 class TestGen : public ::testing::Test
 {
@@ -8,19 +11,19 @@ class TestGen : public ::testing::Test
 		void SetUp() override;
 		void TearDown() override;
 
-		Library2 *TestObj2_;
+		CPWSession* TestObj_;
 };
 
 //-----------------------------------------------------------------------------
 
 void TestGen::SetUp()
 {
-	TestObj2_ = new Library2();
+	TestObj_ = new CPWSession();
 }
 
 void TestGen::TearDown()
 {
-	delete TestObj2_;
+	delete TestObj_;
 }
 
 //-----------------------------------------------------------------------------
