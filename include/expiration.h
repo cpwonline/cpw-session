@@ -39,10 +39,11 @@ class Expiration
 	private:
 		bool active_;
 		bool expired_;
-		std::chrono::minutes session_duration_;
+		std::chrono::duration<double> session_duration_;
+		std::chrono::duration<double> elapsed_seconds_;
+		std::chrono::duration<double> time_remaining_;
 		std::chrono::time_point<std::chrono::system_clock> time_start_;
 		std::chrono::time_point<std::chrono::system_clock> time_end_;
-		std::chrono::duration<double> time_remaining_;
 };
 
 #endif /* EXPIRATION_H */ 
