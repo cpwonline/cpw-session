@@ -13,8 +13,7 @@
 #include "permission.h"
 
 
-Permission::Permission(std::string name) :
-	name_ = name
+Permission::Permission()
 {
 	
 }

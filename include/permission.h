@@ -18,7 +18,7 @@
 class Permission
 {
 	public:
-		Permission(std::string name);
+		Permission();
 		virtual ~Permission();
 	
 	public:
