@@ -15,11 +15,11 @@
 
 Expiration::Expiration(bool active, int session_duration) :
 	active_(active),
-	expired_(false)
+	expired_(false),
+	session_duration_(session_duration)
 {
 	if(active_)
 	{
-		session_duration_ = session_duration;
 		time_start_ = std::chrono::system_clock::now();
 	}
 }
