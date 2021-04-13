@@ -12,6 +12,8 @@
 
 #include <string>
 
+#include "dac_list.h"
+
 #ifndef PERMISSION_H
 #define PERMISSION_H
 
