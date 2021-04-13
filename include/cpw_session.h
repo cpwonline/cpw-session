@@ -29,6 +29,16 @@ class CPWSession
 		virtual ~CPWSession();
 		
 	public:
+		enum DACType
+		{
+			kCreate,
+			kRead,
+			kUpdate,
+			kDelete,
+			kGeneric
+		};
+		
+	public:
 		Session* get_current_session() const;
 		AccessControl* get_current_access_control() const;
 	
