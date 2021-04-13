@@ -15,25 +15,10 @@
 
 Permission::Permission()
 {
-	
+	actions_list_ = new DACList();
 }
 
-Permission::~Permission()
-{
-	
-}
-
-bool Permission::DAC::get_create() const
-{
-	return create;
-}
-
-bool Permission::DAC::get_read() const
-{
-	return read;
-}
-
-bool Permission::DAC::get_update() const
+Permission::Permission(const Permission* permission)
 {
 	actions_list_ = new DACList();
 	name_ = permission->get_name();
@@ -45,29 +30,9 @@ bool Permission::DAC::get_update() const
 	actions_list_->set_remove(permission->get_actions_list()->get_remove());
 }
 
-bool Permission::DAC::get_remove() const
+Permission::~Permission()
 {
-	return remove;
-}
-
-void Permission::DAC::set_create(bool create)
-{
-	this->create = create;
-}
-
-void Permission::DAC::set_read(bool read)
-{
-	this->read = read;
-}
-
-void Permission::DAC::set_update(bool update)
-{
-	this->update = update;
-}
-
-void Permission::DAC::set_remove(bool remove)
-{
-	this->remove = remove;
+	delete actions_list_;
 }
 
 std::string Permission::get_name() const
@@ -85,7 +50,7 @@ std::string Permission::get_description() const
 	return description_;
 }
 
-Permission::DAC Permission::get_actions_list() const
+DACList* Permission::get_actions_list() const
 {
 	return actions_list_;
 }
