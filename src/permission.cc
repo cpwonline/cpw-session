@@ -24,6 +24,46 @@ Permission::~Permission()
 	
 }
 
+bool Permission::DAC::get_create() const
+{
+	return create;
+}
+
+bool Permission::DAC::get_read() const
+{
+	return read;
+}
+
+bool Permission::DAC::get_update() const
+{
+	return update;
+}
+
+bool Permission::DAC::get_remove() const
+{
+	return remove;
+}
+
+void Permission::DAC::set_create(bool create)
+{
+	this->create = create;
+}
+
+void Permission::DAC::set_read(bool read)
+{
+	this->read = read;
+}
+
+void Permission::DAC::set_update(bool update)
+{
+	this->update = update;
+}
+
+void Permission::DAC::set_remove(bool remove)
+{
+	this->remove = remove;
+}
+
 std::string Permission::get_name() const
 {
 	return name_;
