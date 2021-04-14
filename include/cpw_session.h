@@ -42,9 +42,9 @@ class CPWSession
 		AccessControl* get_current_access_control() const;
 	
 	public:
-		void NewPermission_(bool passed, std::string name, std::string description, bool create, bool read, bool update, bool remove);
+		void NewPermission_(bool enabled, std::string name, std::string description, bool create, bool read, bool update, bool remove);
 		void NewLevel_(int identifier, std::string name);
-		bool Verify_(std::string permission_name, DACType action_type, bool passed = true);
+		bool Verify_(DACType action_type, std::string permission_name);
 		bool Verify_(int level_identifier);
 		
 	private:

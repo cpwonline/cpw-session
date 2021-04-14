@@ -66,9 +66,42 @@ void CPWSession::NewLevel_(int identifier, std::string name)
 	delete temporal_level;
 }
 
-bool Verify_(std::string permission_name, DACType action_type, bool passed)
+bool CPWSession::Verify_(CPWSession::DACType action_type, std::string permission_name)
 {
-	return true;
+	auto permission_to_verify = new Permission();
+	permission_to_verify->set_name(permission_name);
+	
+	switch(action_type)
+	{
+		case DACType::kCreate:
+		{
+			permission_to_verify->get_actions_list()->set_create(true);
+			break;
+		}
+		case DACType::kRead:
+		{
+			permission_to_verify->get_actions_list()->set_read(true);
+			break;
+		}
+		case DACType::kUpdate:
+		{
+			permission_to_verify->get_actions_list()->set_update(true);
+			break;
+		}
+		case DACType::kDelete:
+		{
+			permission_to_verify->get_actions_list()->set_delete(true);
+			break;
+		}
+		default:
+		{
+			return false;
+		}
+	}
+	bool result = current_access_control_->VerifyAccess_(permission_to_verify);
+	delete permission_to_verify;
+	
+	return result;
 }
 
 bool Verify_(int level_identifier)
