@@ -53,7 +53,18 @@ bool AccessControl::VerifyAccess_(Permission* permission_to_verify)
 		return false;
 }
 
-bool AccessControl::VerifyAccess_(Permission* permission_to_verify, Level* level_to_verify)
+bool AccessControl::VerifyAccess_(Level* level_to_verify)
 {
+	auto find_level = [level_to_verify](const Level* level)
+	{ 
+		return level_to_verify->get_identifier() == level->get_identifier(); 
+	};
+	auto result = std::find_if(levels_colector_->begin(), levels_colector_->end(), find_level);
 	
+	if(result != levels_colector_->end()) 
+		return true;
+	else
+		return false;
+}
+
 }

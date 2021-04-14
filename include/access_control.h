@@ -10,6 +10,7 @@
  */
 
 #include <set>
+#include <algorithm>
 
 #include <permission.h>
 #include <level.h>
@@ -29,7 +30,7 @@ class AccessControl
 		
 	public:
 		bool VerifyAccess_(Permission* permission_to_verify);
-		bool VerifyAccess_(Permission* permission_to_verify, Level* level_to_verify);
+		bool VerifyAccess_(Level* level_to_verify);
 		
 	private:
 		std::set<Permission*>* permissions_colector_;
