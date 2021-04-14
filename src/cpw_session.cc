@@ -104,7 +104,10 @@ bool CPWSession::Verify_(CPWSession::DACType action_type, std::string permission
 	return result;
 }
 
-bool Verify_(int level_identifier)
+bool CPWSession::Verify_(int level_identifier)
 {
-	return true;
+	auto level_to_verify = new Level();
+	level_to_verify->set_identifier(level_identifier);
+	
+	return current_access_control_->VerifyAccess_(level_to_verify);
 }
