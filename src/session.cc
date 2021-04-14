@@ -13,12 +13,12 @@
 #include "session.h"
 
 
-Session::Session()
+Session::Session(bool active, int session_duration)
 {
 	current_user_ = new User();
 	permissions_colector_ = new std::set<Permission*>;
 	levels_colector_ = new std::set<Level*>;
-	current_expiration_ = new Expiration(false);
+	current_expiration_ = new Expiration(active, session_duration);
 }
 
 Session::~Session()

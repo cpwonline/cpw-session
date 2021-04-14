@@ -23,7 +23,7 @@
 class Session
 {
 	public:
-		Session();
+		Session(bool active = false, int session_duration = 0);
 		virtual ~Session();
 		
 	public:
