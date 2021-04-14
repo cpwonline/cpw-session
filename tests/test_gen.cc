@@ -96,6 +96,20 @@ TEST_F(TestGen, VerifyPermissionsTest)
 	ASSERT_EQ(false, TestObj_->Verify_(CPWSession::DACType::kDelete, "Accounts"));
 }
 
+TEST_F(TestGen, VerifyLevelsTest)
+{
+	TestObj_->get_current_session()->get_current_user()->set_user_name("josefelixrc7");
+	TestObj_->NewLevel_(2, "Developer");
+	TestObj_->NewLevel_(5, "Manager");
+	TestObj_->NewLevel_(6, "Technical");
+	
+	ASSERT_EQ(true, TestObj_->Verify_(2));
+	ASSERT_EQ(true, TestObj_->Verify_(5));
+	ASSERT_EQ(true, TestObj_->Verify_(6));
+	ASSERT_EQ(false, TestObj_->Verify_(7));
+	ASSERT_EQ(false, TestObj_->Verify_(7));
+}
+
 //-----------------------------------------------------------------------------
 
 int main(int argc, char* argv[])
