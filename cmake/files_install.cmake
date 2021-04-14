@@ -9,6 +9,7 @@ install(
 	FILES 
 		${HEADER}/access_control.h
 		${HEADER}/cpw_session.h
+		${HEADER}/dac_list.h
 		${HEADER}/expiration.h
 		${HEADER}/level.h
 		${HEADER}/permission.h
