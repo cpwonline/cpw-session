@@ -36,7 +36,21 @@ std::set<Level*>* AccessControl::get_levels_colector() const
 
 bool AccessControl::VerifyAccess_(Permission* permission_to_verify)
 {
+	auto find_permission = [permission_to_verify](const Permission* permission)
+	{ 
+		return permission_to_verify->get_name() == permission->get_name(); 
+	};
 	
+	auto result = std::find_if(permissions_colector_->begin(), permissions_colector_->end(), find_permission);
+	
+	if(result != permissions_colector_->end())
+	{
+		if(!(*result)->get_enabled()) return false;
+		
+		return SeeTrueAttribute_(permission_to_verify, *result);
+	}
+	else
+		return false;
 }
 
 bool AccessControl::VerifyAccess_(Permission* permission_to_verify, Level* level_to_verify)
