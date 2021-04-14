@@ -22,12 +22,12 @@ Permission::Permission(const Permission* permission)
 {
 	actions_list_ = new DACList();
 	name_ = permission->get_name();
-	passed_ = permission->get_passed();
+	enabled_ = permission->get_enabled();
 	description_ = permission->get_description();
 	actions_list_->set_create(permission->get_actions_list()->get_create());
 	actions_list_->set_read(permission->get_actions_list()->get_read());
 	actions_list_->set_update(permission->get_actions_list()->get_update());
-	actions_list_->set_remove(permission->get_actions_list()->get_remove());
+	actions_list_->set_delete(permission->get_actions_list()->get_delete());
 }
 
 Permission::~Permission()
@@ -40,9 +40,9 @@ std::string Permission::get_name() const
 	return name_;
 }
 
-bool Permission::get_passed() const
+bool Permission::get_enabled() const
 {
-	return passed_;
+	return enabled_;
 }
 
 std::string Permission::get_description() const
@@ -60,9 +60,9 @@ void Permission::set_name(std::string name)
 	name_ = name;
 }
 
-void Permission::set_passed(bool passed)
+void Permission::set_enabled(bool enabled)
 {
-	passed_ = passed;
+	enabled_ = enabled;
 }
 
 void Permission::set_description(std::string description)

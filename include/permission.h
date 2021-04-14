@@ -26,18 +26,18 @@ class Permission
 	
 	public:
 		std::string get_name() const;
-		bool get_passed() const;
+		bool get_enabled() const;
 		std::string get_description() const;
 		DACList* get_actions_list() const;
 	
 	public:
 		void set_name(std::string name);
-		void set_passed(bool passed);
+		void set_enabled(bool enabled);
 		void set_description(std::string description);
 		
 	private:
 		std::string name_;
-		bool passed_;
+		bool enabled_;
 		std::string description_;
 		DACList* actions_list_;
 };
