@@ -23,16 +23,16 @@ class DACList
 		bool get_create() const;
 		bool get_read() const;
 		bool get_update() const;
-		bool get_remove() const;
+		bool get_delete() const;
 		
 	public:
 		void set_create(bool create);
 		void set_read(bool read);
 		void set_update(bool update);
-		void set_remove(bool remove);
+		void set_delete(bool remove);
 		
 	private:
-		bool create_, read_, update_, remove_;
+		bool create_, read_, update_, delete_;
 };
 
 #endif /* DAC_LIST_H */ 

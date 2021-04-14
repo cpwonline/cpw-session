@@ -38,9 +38,9 @@ bool DACList::get_update() const
 	return update_;
 }
 
-bool DACList::get_remove() const
+bool DACList::get_delete() const
 {
-	return remove_;
+	return delete_;
 }
 
 void DACList::set_create(bool create)
@@ -58,7 +58,7 @@ void DACList::set_update(bool update)
 	update_ = update;
 }
 
-void DACList::set_remove(bool remove)
+void DACList::set_delete(bool remove)
 {
-	remove_ = remove;
+	delete_ = remove;
 }
