@@ -1,4 +1,4 @@
-# PROJECT NAME
+# CPW Session
 
 ## Introduction
 
