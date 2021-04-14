@@ -32,6 +32,9 @@ class AccessControl
 		bool VerifyAccess_(Permission* permission_to_verify);
 		bool VerifyAccess_(Level* level_to_verify);
 		
+	protected:
+		bool SeeTrueAttribute_(Permission* permission_to_verify, Permission* permission_found);
+		
 	private:
 		std::set<Permission*>* permissions_colector_;
 		std::set<Level*>* levels_colector_;

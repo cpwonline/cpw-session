@@ -67,4 +67,16 @@ bool AccessControl::VerifyAccess_(Level* level_to_verify)
 		return false;
 }
 
+bool AccessControl::SeeTrueAttribute_(Permission* permission_to_verify, Permission* permission_found)
+{
+	if(permission_to_verify->get_actions_list()->get_create())
+		return permission_found->get_actions_list()->get_create() == true;
+	else if(permission_to_verify->get_actions_list()->get_read())
+		return permission_found->get_actions_list()->get_read() == true;
+	else if(permission_to_verify->get_actions_list()->get_update())
+		return permission_found->get_actions_list()->get_update() == true;
+	else if(permission_to_verify->get_actions_list()->get_delete())
+		return permission_found->get_actions_list()->get_delete() == true;
+	else
+		return false;
 }
