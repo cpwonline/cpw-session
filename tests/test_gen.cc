@@ -51,13 +51,13 @@ TEST_F(TestGen, PermissionsListTest)
 	std::cout << "\nSize: " << permissions->size();
 	for(auto it = permissions->begin(); it != permissions->end(); ++it)
 	{
-		std::cout << "\nname: " << (*it)->get_name() << ", passed: " << (*it)->get_passed() << 
+		std::cout << "\nname: " << (*it)->get_name() << ", enabled: " << (*it)->get_enabled() << 
 			", description: " << (*it)->get_description() <<
 			", DACList: "
 				<< (*it)->get_actions_list()->get_create()
 				<< (*it)->get_actions_list()->get_read()
 				<< (*it)->get_actions_list()->get_update()
-				<< (*it)->get_actions_list()->get_remove()
+				<< (*it)->get_actions_list()->get_delete()
 		;
 	}
 	std::cout << "\n";
@@ -79,6 +79,21 @@ TEST_F(TestGen, LevelsListTest)
 		std::cout << "\nId: " << (*it)->get_identifier() << ", name: " << (*it)->get_name();
 	}
 	std::cout << "\n";
+}
+
+TEST_F(TestGen, VerifyPermissionsTest)
+{
+	TestObj_->get_current_session()->get_current_user()->set_user_name("josefelixrc7");
+	TestObj_->NewPermission_(true, "Menus", "Permissions for menus", true, true, true, false);
+	TestObj_->NewPermission_(false, "SubMenus", "Permissions for submenus", true, true, false, false);
+	TestObj_->NewPermission_(true, "Accounts", "Permissions for accounts", false, true, false, false);
+	TestObj_->NewPermission_(true, "Deals", "Permissions for deals", false, true, true, false);
+	
+	ASSERT_EQ(true, TestObj_->Verify_(CPWSession::DACType::kCreate, "Menus"));
+	ASSERT_EQ(false, TestObj_->Verify_(CPWSession::DACType::kRead, "SubMenus"));
+	ASSERT_EQ(false, TestObj_->Verify_(CPWSession::DACType::kUpdate, "Pages"));
+	ASSERT_EQ(true, TestObj_->Verify_(CPWSession::DACType::kRead, "Deals"));
+	ASSERT_EQ(false, TestObj_->Verify_(CPWSession::DACType::kDelete, "Accounts"));
 }
 
 //-----------------------------------------------------------------------------
