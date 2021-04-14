@@ -34,8 +34,7 @@ class CPWSession
 			kCreate,
 			kRead,
 			kUpdate,
-			kDelete,
-			kGeneric
+			kDelete
 		};
 		
 	public:

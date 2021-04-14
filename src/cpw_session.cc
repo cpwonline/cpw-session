@@ -41,16 +41,16 @@ AccessControl* CPWSession::get_current_access_control() const
 	return current_access_control_;
 }
 
-void CPWSession::NewPermission_(bool passed, std::string name, std::string description, bool create, bool read, bool update, bool remove)
+void CPWSession::NewPermission_(bool enabled, std::string name, std::string description, bool create, bool read, bool update, bool remove)
 {
 	Permission* temporal_permission = new Permission();
 	temporal_permission->set_name(name);
-	temporal_permission->set_passed(passed);
+	temporal_permission->set_enabled(enabled);
 	temporal_permission->set_description(description);
 	temporal_permission->get_actions_list()->set_create(create);
 	temporal_permission->get_actions_list()->set_read(read);
 	temporal_permission->get_actions_list()->set_update(update);
-	temporal_permission->get_actions_list()->set_remove(remove);
+	temporal_permission->get_actions_list()->set_delete(remove);
 	
 	current_session_->get_permissions_colector()->emplace(new Permission(temporal_permission));
 	delete temporal_permission;
