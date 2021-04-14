@@ -46,6 +46,7 @@ class CPWSession
 		void NewLevel_(int identifier, std::string name);
 		bool Verify_(DACType action_type, std::string permission_name);
 		bool Verify_(int level_identifier);
+		bool Expired_();
 		
 	private:
 		Session* current_session_;

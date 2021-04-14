@@ -112,3 +112,8 @@ bool CPWSession::Verify_(int level_identifier)
 	
 	return current_access_control_->VerifyAccess_(level_to_verify);
 }
+
+bool CPWSession::Expired_()
+{
+	return current_session_->get_current_expiration()->VerifyStatus_();
+}
